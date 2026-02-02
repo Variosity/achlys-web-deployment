@@ -74,8 +74,8 @@ vas hero : obj -> {
     stats: { hp: 100, mp: 50 }
 } ^            
               
-// Any type for flexibility if needed              
-vas test : any -> capio()^'}
+// 'Any' type for flexibility if needed              
+vas test : any -> numerus(capio())^`}
             />
             <DocEntry 
               title="Control Flow" 
