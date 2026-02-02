@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 import { Download, Shield, Layers, Box, Github } from 'lucide-react'
 //import Link from 'next/link'
 
-const REPO_URL = "https://github.com/Variosity/-Achlys"
-const VERSION = "v1.2"
+//const REPO_URL = "https://github.com/Variosity/-Achlys"
+//const VERSION = "v1.2"
 
 export default function DownloadPage() {
   const versions = [
@@ -16,7 +16,7 @@ export default function DownloadPage() {
       icon: <Shield className="w-10 h-10 text-blood" />,
       desc: "Static binary. No graphics. Pure networking. Optimized for Red Team stealth.",
       cmd: "gcc -DNO_GRAPHICS achlys.c -o achlys -lm",
-      url: `${REPO_URL}/archive/refs/tags/v1.2.zip`
+      url: `https://release-assets.githubusercontent.com/github-production-release-asset/1147836504/22913019-a19a-4b1b-86ff-18f36075a66b?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-02-02T13%3A40%3A36Z&rscd=attachment%3B+filename%3Dachlys&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-02-02T12%3A39%3A43Z&ske=2026-02-02T13%3A40%3A36Z&sks=b&skv=2018-11-09&sig=mbPx9LkfkQ80FEtRKsHZASioBqTebITapfNCJmYGuO4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3MDAzNjI4MywibmJmIjoxNzcwMDM1OTgzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.MZiaZMVHhsmIIXqOgcdTrckW5yRHZUeU9gUhaQWLLcY&response-content-disposition=attachment%3B%20filename%3Dachlys&response-content-type=application%2Foctet-stream`
     },
     {
       name: "Achlys Full",
@@ -25,7 +25,7 @@ export default function DownloadPage() {
       icon: <Layers className="w-10 h-10 text-blood" />,
       desc: "Complete experience. Raylib graphics engine enabled. Best for development.",
       cmd: "gcc -DENABLE_GRAPHICS achlys.c -lraylib -lm",
-      url: `${REPO_URL}/archive/refs/tags/v1.2.zip`
+      url: `https://release-assets.githubusercontent.com/github-production-release-asset/1147836504/22913019-a19a-4b1b-86ff-18f36075a66b?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-02-02T13%3A40%3A36Z&rscd=attachment%3B+filename%3Dachlys&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-02-02T12%3A39%3A43Z&ske=2026-02-02T13%3A40%3A36Z&sks=b&skv=2018-11-09&sig=mbPx9LkfkQ80FEtRKsHZASioBqTebITapfNCJmYGuO4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3MDAzNjI4MywibmJmIjoxNzcwMDM1OTgzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.MZiaZMVHhsmIIXqOgcdTrckW5yRHZUeU9gUhaQWLLcY&response-content-disposition=attachment%3B%20filename%3Dachlys&response-content-type=application%2Foctet-stream`
     },
     {
       name: "Achlys Ouroboros",
@@ -34,7 +34,7 @@ export default function DownloadPage() {
       icon: <Box className="w-10 h-10 text-blood" />,
       desc: "The Ouroboros. Zero dependencies. Graphics included. Runs on any Linux.",
       cmd: "./achlys ouroboros.nox",
-      url: `${REPO_URL}/archive/refs/tags/v1.2.zip`
+      url: `https://release-assets.githubusercontent.com/github-production-release-asset/1147836504/fe09290a-2b5b-4e7b-9d98-56468d166fb1?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-02-02T13%3A45%3A57Z&rscd=attachment%3B+filename%3Douroboros.nox&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-02-02T12%3A45%3A52Z&ske=2026-02-02T13%3A45%3A57Z&sks=b&skv=2018-11-09&sig=7cH%2F8yb%2FFALlcbgf85ZjFHF6wbzVUiqLv7opqA3rnVs%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3MDAzNjY1MywibmJmIjoxNzcwMDM2MzUzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.FrTFbq55fj8jWDH3GQRtEQodqcrLLRiEEFzBTK3SGKQ&response-content-disposition=attachment%3B%20filename%3Douroboros.nox&response-content-type=application%2Foctet-stream`
     }
   ]
 
