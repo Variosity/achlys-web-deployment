@@ -75,8 +75,7 @@ vas hero : obj -> {
 } ^            
               
 // 'any' type for flexibility if needed              
-vas test : any -> capio()^              }
-            />
+vas test : any -> capio()^              }/>
             <DocEntry 
               title="Control Flow" 
               desc="Logic gates using Latin keywords: si (if), aliter (else), dum (while)."
