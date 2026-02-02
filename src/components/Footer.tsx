@@ -34,10 +34,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">Connect</h3>
             <div className="flex space-x-4">
-              <a href="https://github.com/achlys-lang" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/Variosity/-Achlys" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Github size={20} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/Variosity/-Achlys" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter size={20} />
               </a>
             </div>
