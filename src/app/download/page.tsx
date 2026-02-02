@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Download, Shield, Layers, Box, Github } from 'lucide-react'
-import Link from 'next/link'
+//import Link from 'next/link'
 
 const REPO_URL = "https://github.com/Variosity/-Achlys"
 const VERSION = "v1.2"
