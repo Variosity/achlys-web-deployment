@@ -16,7 +16,7 @@ export default function DownloadPage() {
       icon: <Shield className="w-10 h-10 text-blood" />,
       desc: "Static binary. No graphics. Pure networking. Optimized for Red Team stealth.",
       cmd: "gcc -DNO_GRAPHICS achlys.c -o achlys -lm",
-      url: `${REPO_URL}/releases/download/${VERSION}/achlys-core-linux-amd64`
+      url: `${REPO_URL}/archive/refs/tags/v1.2.zip`
     },
     {
       name: "Achlys Full",
@@ -25,7 +25,7 @@ export default function DownloadPage() {
       icon: <Layers className="w-10 h-10 text-blood" />,
       desc: "Complete experience. Raylib graphics engine enabled. Best for development.",
       cmd: "gcc -DENABLE_GRAPHICS achlys.c -lraylib -lm",
-      url: `${REPO_URL}/releases/download/${VERSION}/achlys-core-linux-amd64`
+      url: `${REPO_URL}/archive/refs/tags/v1.2.zip`
     },
     {
       name: "Achlys Ouroboros",
@@ -34,7 +34,7 @@ export default function DownloadPage() {
       icon: <Box className="w-10 h-10 text-blood" />,
       desc: "The Ouroboros. Zero dependencies. Graphics included. Runs on any Linux.",
       cmd: "./achlys ouroboros.nox",
-      url: `${REPO_URL}/releases/download/${VERSION}/achlys-core-linux-amd64`
+      url: `${REPO_URL}/archive/refs/tags/v1.2.zip`
     }
   ]
 
