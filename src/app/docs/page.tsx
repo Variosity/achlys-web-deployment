@@ -65,7 +65,17 @@ vas ratio : dec -> 3.14159^
 vas message : str -> "Hello Void"^
 
 // Arrays (Lists)
-vas targets : arr -> ["192.168.1.1", "10.0.0.1"]^`}
+vas targets : arr -> ["192.168.1.1", "10.0.0.1"]^`
+                
+// Objects (Maps) 
+vas hero : obj -> {
+    name: "Achlys",
+    lvl: 1,
+    stats: { hp: 100, mp: 50 }
+} ^            
+              
+// 'any' type for flexibility if needed              
+vas test : any -> capio()^              }
             />
             <DocEntry 
               title="Control Flow" 
