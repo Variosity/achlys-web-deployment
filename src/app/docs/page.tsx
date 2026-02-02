@@ -14,7 +14,7 @@ export default function Docs() {
         <div className="text-center mb-20">
           <h1 className="text-6xl font-bold mb-6">THE <span className="neon-text">CODEX</span></h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Documentation for Achlys v1.5 (Hybrid Core). <br/>
+            Documentation for Achlys v1.2 (Hybrid Core). <br/>
             Strict typing. Latin syntax. Ouroboros compilation.
           </p>
         </div>
