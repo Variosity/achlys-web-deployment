@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-mono: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  body {
+    @apply bg-void text-white font-mono overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 0, 51, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 0, 51, 0.05) 0%, transparent 50%);
+  }
+
+  /* Custom scrollbar for that Cyberpunk feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-void;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blood/50 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blood;
+  }
+  ::selection {
+    @apply bg-blood text-white;
+  }
+}
+
+@layer components {
+  .neon-text {
+    @apply text-white;
+    text-shadow: 
+      0 0 10px #FF0033,
+      0 0 20px #FF0033,
+      0 0 40px #FF0033;
+  }
+
+  .neon-border {
+    @apply border border-blood/50 shadow-[0_0_10px_rgba(255,0,51,0.2)];
+  }
+
+  .glass-card {
+    @apply bg-void-light/80 backdrop-blur-sm border border-white/10 p-6 rounded-none;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    @apply border-blood/60 shadow-[0_0_15px_rgba(255,0,51,0.15)];
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-blood text-white font-bold tracking-widest uppercase border border-transparent transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-transparent border-blood text-blood shadow-[0_0_20px_rgba(255,0,51,0.4)];
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 bg-transparent text-white font-bold tracking-widest uppercase border border-white/20 transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply border-white text-white bg-white/5;
+  }
+}
+
+.grid-bg {
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
