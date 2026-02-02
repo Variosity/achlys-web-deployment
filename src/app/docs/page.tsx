@@ -1,136 +1,190 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Terminal, Network, Monitor, FileCode, Cpu, BookOpen, Hash, Code2 } from 'lucide-react'
+import { Terminal, Network, Monitor, Cpu, BookOpen, Hash, Shield, Globe } from 'lucide-react'
 
 export default function Docs() {
   return (
-    <div className="section-container pt-32 pb-32"> {/* Increased bottom padding */}
+    <div className="pt-32 pb-40 px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-5xl mx-auto"
+        className="max-w-4xl mx-auto"
       >
-        <div className="text-center mb-20">
-          <h1 className="text-6xl font-bold mb-6">THE <span className="neon-text">CODEX</span></h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Documentation for Achlys v1.2 (Hybrid Core). <br/>
+        {/* HEADER */}
+        <div className="text-center mb-24">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+            THE <span className="neon-text">CODEX</span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Achlys v1.2 Reference Manual. <br />
             Strict typing. Latin syntax. Ouroboros compilation.
           </p>
         </div>
 
-        {/* 1. SYNTAX GUIDE */}
-        <section className="mb-24">
-          <SectionHeader icon={<BookOpen />} title="Language Fundamentals" />
-          <div className="grid gap-6">
-            <DocCard title="Variables & Types" code={`vas name : str -> "Achlys"^
+        {/* 1. OVERVIEW & SPECS */}
+        <Section title="Language Specifications" icon={<Shield />}>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="glass-card">
+              <h3 className="text-blood font-bold mb-4 uppercase tracking-wider">Core Features</h3>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li>• <strong>Self-Hosting:</strong> Compiles itself via `forge.nox`.</li>
+                <li>• <strong>Zero Dependencies:</strong> Produces standalone binaries.</li>
+                <li>• <strong>Hybrid Core:</strong> Shadow (Headless) & Neon (Graphics) modes.</li>
+                <li>• <strong>Strict Typing:</strong> Enforced at runtime for safety.</li>
+              </ul>
+            </div>
+            <div className="glass-card">
+              <h3 className="text-blood font-bold mb-4 uppercase tracking-wider">Use Cases</h3>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li>• <strong>Red Team:</strong> C2 Beacons, Port Scanners (Native Sockets).</li>
+                <li>• <strong>Tooling:</strong> Exploitation frameworks, file parsers.</li>
+                <li>• <strong>Education:</strong> Learning computer science via Latin.</li>
+                <li>• <strong>GUI Apps:</strong> Dashboards, visualizers (Raylib).</li>
+              </ul>
+            </div>
+          </div>
+        </Section>
+
+        {/* 2. SYNTAX & TYPES */}
+        <Section title="Syntax & Data Types" icon={<Hash />}>
+          <p className="text-gray-400 mb-6">
+            Achlys requires explicit type declarations. Statements must end with a caret (<code>^</code>).
+          </p>
+          <div className="space-y-6">
+            <DocEntry 
+              title="Variable Declaration (Vas)" 
+              desc="Format: vas [name] : [type] -> [value]^"
+              code={`// Integers (Whole numbers)
 vas port : int -> 80^
-vas ratio : dec -> 3.14^
-vas list : arr -> []^`}>
-              Achlys enforces strict typing. You must declare the type (`int`, `str`, `dec`, `arr`, `obj`) when defining a variable. Statements end with a caret (`^`).
-            </DocCard>
 
-            <DocCard title="Output & Input" code={`scribo("Hello Void")^
-vas input : str -> capio()^
-vas age : int -> numerus(input)^`}>
-              Use `scribo` (or `insusurro`) to print. Use `capio` to capture stdin. Input is always a string; use `numerus()` to cast to int/float.
-            </DocCard>
+// Decimals (Floating point)
+vas ratio : dec -> 3.14159^
 
-            <DocCard title="Control Flow" code={`si (x > 10) {
-    scribo("High")^
+// Strings (Text)
+vas message : str -> "Hello Void"^
+
+// Arrays (Lists)
+vas targets : arr -> ["192.168.1.1", "10.0.0.1"]^`}
+            />
+            <DocEntry 
+              title="Control Flow" 
+              desc="Logic gates using Latin keywords: si (if), aliter (else), dum (while)."
+              code={`// Conditional Logic
+si (port == 80) {
+    scribo("HTTP Service Detected")^
 } aliter {
-    scribo("Low")^
+    scribo("Unknown Service")^
 }
 
-dum (x < 100) {
-    x -> x + 1^
-}^`}>
-              Logic uses `si` (if), `aliter` (else), and `dum` (while). Braces `{}` are mandatory for blocks.
-            </DocCard>
+// Loops
+vas i : int -> 0^
+dum (i < 10) {
+    scribo("Counting: " + i)^
+    i -> i + 1^
+}^`}
+            />
+          </div>
+        </Section>
 
-            <DocCard title="Functions (Opus)" code={`opus add(a, b) {
-    vas res : int -> a + b^
-    reddo res^
+        {/* 3. FUNCTIONS */}
+        <Section title="Functions (Opus)" icon={<BookOpen />}>
+          <DocEntry 
+            title="Defining Functions" 
+            desc="Use 'opus' to define. Parameters are dynamically scoped. Use 'reddo' to return."
+            code={`opus add(a, b) {
+    vas result : int -> a + b^
+    reddo result^
 }^
 
-vas sum : int -> add(10, 20)^`}>
-              Functions are declared with `opus` and return values with `reddo`. Arguments create local scope variables automatically.
-            </DocCard>
-          </div>
-        </section>
+// Calling the function
+vas sum : int -> add(10, 20)^
+scribo(sum)^`}
+          />
+        </Section>
 
-        {/* 2. CORE API */}
-        <section className="mb-24">
-          <SectionHeader icon={<Cpu />} title="Core System API" />
-          <div className="grid md:grid-cols-2 gap-6">
-            <ApiItem name="sys(cmd)" desc="Execute shell command. Returns exit code." usage='sys("ls -la")^' />
-            <ApiItem name="inscribo(path, data)" desc="Write string data to a file." usage='inscribo("log.txt", "Data")^' />
-            <ApiItem name="revelare(path)" desc="Read file contents into a string." usage='vas content : str -> revelare("file.txt")^' />
-            <ApiItem name="mensura(obj)" desc="Get length of string or array." usage='vas len : int -> mensura(list)^' />
-          </div>
-        </section>
-
-        {/* 3. NETWORKING */}
-        <section className="mb-24">
-          <SectionHeader icon={<Network />} title="Nerve Layer (Networking)" />
-          <p className="text-gray-400 mb-6">Native TCP sockets for Red Team operations.</p>
+        {/* 4. NETWORKING */}
+        <Section title="Nerve Layer (Networking)" icon={<Network />}>
+          <p className="text-gray-400 mb-6">
+            Direct access to TCP sockets. DNS resolution is automatic via `gethostbyname`.
+          </p>
           <div className="grid gap-4">
-            <ApiItem name="conexus(host, port)" desc="Connect to target. Returns socket ID or -1." usage='vas s : int -> conexus("192.168.1.1", 80)^' />
-            <ApiItem name="mitto(sock, data)" desc="Send raw string data/payload." usage='mitto(s, "GET / HTTP/1.1\\r\\n\\r\\n")^' />
-            <ApiItem name="recipio(sock, bytes)" desc="Receive response buffer." usage='vas res : str -> recipio(s, 4096)^' />
-            <ApiItem name="claudere(sock)" desc="Close the connection." usage='claudere(s)^' />
+            <ApiCard name="necto(host, port)" desc="Opens a TCP connection. Returns a Socket ID." usage='vas sock : int -> necto("example.com", 80)^' />
+            <ApiCard name="mitto(sock, data)" desc="Sends raw string payload." usage='mitto(sock, "GET / HTTP/1.1\\r\\n\\r\\n")^' />
+            <ApiCard name="recipio(sock, size)" desc="Reads bytes from the stream." usage='vas res : str -> recipio(sock, 1024)^' />
+            <ApiCard name="claudere(sock)" desc="Terminates the connection." usage='claudere(sock)^' />
           </div>
-        </section>
+        </Section>
 
-        {/* 4. GRAPHICS */}
-        <section className="mb-12">
-          <SectionHeader icon={<Monitor />} title="Neon Layer (Graphics)" />
-          <p className="text-gray-400 mb-6">Requires `-DENABLE_GRAPHICS` flag. Raylib backend.</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ApiItem name="fenestra(w, h, title)" desc="Open window." />
-            <ApiItem name="incipere_picturam()" desc="Start frame." />
-            <ApiItem name="finire_picturam()" desc="End frame." />
-            <ApiItem name="purgare_fundum(col)" desc="Clear screen." />
-            <ApiItem name="delinere_textum(txt, x, y, size, col)" desc="Draw text." />
-            <ApiItem name="delinere_quadratum(x, y, w, h, col)" desc="Draw rect." />
-            <ApiItem name="delinere_circulum(x, y, r, col)" desc="Draw circle." />
-            <ApiItem name="capere_signum()" desc="Get key pressed (char)." />
+        {/* 5. GRAPHICS */}
+        <Section title="Neon Layer (Graphics)" icon={<Monitor />}>
+          <p className="text-gray-400 mb-6">
+            Available when compiled with <code>-DENABLE_GRAPHICS</code>. Uses Raylib backend.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <ApiCard name="fenestra(w, h, title)" desc="Opens a new window." />
+            <ApiCard name="incipere_picturam()" desc="Begin rendering frame." />
+            <ApiCard name="finire_picturam()" desc="End rendering frame." />
+            <ApiCard name="purgare_fundum(col)" desc="Clear screen with color." />
+            <ApiCard name="delinere_textum(txt, x, y, s, c)" desc="Draw text at position." />
+            <ApiCard name="delinere_quadratum(x, y, w, h, c)" desc="Draw filled rectangle." />
+            <ApiCard name="delinere_circulum(x, y, r, c)" desc="Draw filled circle." />
+            <ApiCard name="clavis_pressa(keycode)" desc="Check if key is held down." />
           </div>
-        </section>
+        </Section>
+
+        {/* 6. SYSTEM I/O */}
+        <Section title="System Core" icon={<Cpu />}>
+          <div className="grid md:grid-cols-2 gap-4">
+            <ApiCard name="sys(cmd)" desc="Execute shell command. Returns exit code." />
+            <ApiCard name="inscribo(path, data)" desc="Write string to file system." />
+            <ApiCard name="revelare(path)" desc="Read file contents into variable." />
+            <ApiCard name="capio()" desc="Capture stdin (user input)." />
+            <ApiCard name="numerus(str)" desc="Cast string to integer/decimal." />
+          </div>
+        </Section>
 
       </motion.div>
     </div>
   )
 }
 
-// Sub-components for clean layout
-function SectionHeader({ icon, title }: { icon: any, title: string }) {
+// --- SUBCOMPONENTS ---
+
+function Section({ title, icon, children }: { title: string, icon: any, children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
-      <div className="text-blood">{icon}</div>
-      <h2 className="text-3xl font-bold text-white">{title}</h2>
-    </div>
+    <section className="mb-24">
+      <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+        <div className="text-blood">{icon}</div>
+        <h2 className="text-3xl font-bold text-white">{title}</h2>
+      </div>
+      {children}
+    </section>
   )
 }
 
-function DocCard({ title, code, children }: { title: string, code: string, children: React.ReactNode }) {
+function DocEntry({ title, desc, code }: { title: string, desc: string, code: string }) {
   return (
     <div className="glass-card">
-      <h3 className="text-xl font-bold text-blood mb-4">{title}</h3>
-      <p className="text-gray-400 mb-6 text-sm leading-relaxed">{children}</p>
-      <div className="bg-black/50 border-l-2 border-blood p-4 font-mono text-sm text-gray-300 overflow-x-auto">
+      <h3 className="text-xl font-bold text-blood mb-2">{title}</h3>
+      <p className="text-gray-400 text-sm mb-4">{desc}</p>
+      <div className="bg-black/80 border-l-2 border-blood p-4 font-mono text-sm text-gray-300 code-scroll">
         <pre>{code}</pre>
       </div>
     </div>
   )
 }
 
-function ApiItem({ name, desc, usage }: { name: string, desc: string, usage?: string }) {
+function ApiCard({ name, desc, usage }: { name: string, desc: string, usage?: string }) {
   return (
-    <div className="bg-void-lighter/50 border border-white/5 p-4 hover:border-blood/50 transition-colors">
-      <code className="text-blood font-bold text-base block mb-2">{name}</code>
-      <p className="text-gray-400 text-sm mb-2">{desc}</p>
-      {usage && <code className="text-xs text-gray-600 block mt-2">{usage}</code>}
+    <div className="bg-[#0a0a0a] border border-white/5 p-4 hover:border-blood/50 transition-colors group">
+      <code className="text-blood font-bold text-sm block mb-2 group-hover:text-white transition-colors">{name}</code>
+      <p className="text-gray-500 text-xs mb-2">{desc}</p>
+      {usage && (
+        <div className="mt-2 pt-2 border-t border-white/5">
+          <code className="text-[10px] text-gray-600 font-mono">{usage}</code>
+        </div>
+      )}
     </div>
   )
 }
