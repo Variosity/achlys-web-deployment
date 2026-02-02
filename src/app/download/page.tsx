@@ -78,9 +78,12 @@ export default function DownloadPage() {
                 <span className="text-blood mr-2">$</span>{v.cmd}
               </div>
 
-              <Link href="#" className="btn-secondary w-full flex justify-center items-center gap-2 group-hover:bg-blood group-hover:border-blood group-hover:text-white">
+              <a 
+                href={v.url} 
+                className="btn-secondary w-full flex justify-center items-center gap-2 group-hover:bg-blood group-hover:border-blood group-hover:text-white transition-all"
+              >
                 <Download size={16} /> Download Source
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>
