@@ -65,7 +65,7 @@ vas ratio : dec -> 3.14159^
 vas message : str -> "Hello Void"^
 
 // Arrays (Lists)
-vas targets : arr -> ["192.168.1.1", "10.0.0.1"]^`
+vas targets : arr -> ["192.168.1.1", "10.0.0.1"]^
                 
 // Objects (Maps) 
 vas hero : obj -> {
@@ -75,7 +75,10 @@ vas hero : obj -> {
 } ^            
               
 // 'any' type for flexibility if needed              
-vas test : any -> capio()^              }/>
+vas test : any -> capio()^'              }
+
+            />
+
             <DocEntry 
               title="Control Flow" 
               desc="Logic gates using Latin keywords: si (if), aliter (else), dum (while)."
