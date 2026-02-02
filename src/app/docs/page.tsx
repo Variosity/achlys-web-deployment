@@ -28,7 +28,7 @@ export default function Docs() {
             <div className="glass-card">
               <h3 className="text-blood font-bold mb-4 uppercase tracking-wider">Core Features</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li>• <strong>Self-Hosting:</strong> Compiles itself via `forge.nox`.</li>
+                <li>• <strong>Self-Hosting:</strong> Compiles itself via `ouroboros.nox`.</li>
                 <li>• <strong>Zero Dependencies:</strong> Produces standalone binaries.</li>
                 <li>• <strong>Hybrid Core:</strong> Shadow (Headless) & Neon (Graphics) modes.</li>
                 <li>• <strong>Strict Typing:</strong> Enforced at runtime for safety.</li>
