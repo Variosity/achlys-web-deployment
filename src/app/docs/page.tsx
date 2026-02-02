@@ -74,7 +74,7 @@ vas hero : obj -> {
     stats: { hp: 100, mp: 50 }
 } ^            
               
-// 'any' type for flexibility if needed              
+// Any type for flexibility if needed              
 vas test : any -> capio()^'}
             />
             <DocEntry 
