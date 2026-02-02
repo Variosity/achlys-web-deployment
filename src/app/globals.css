@@ -8,17 +8,15 @@
   }
 
   body {
-    @apply bg-void text-white font-mono overflow-x-hidden;
-    /* Simplified background for performance */
-    background-color: #000000;
-    background-image: 
-      radial-gradient(circle at 50% 0%, rgba(255, 0, 51, 0.1) 0%, transparent 60%);
+    @apply bg-black text-white font-mono overflow-x-hidden;
+    /* PERFORMANCE FIX: Replaced complex gradients with a simple static color + optional grain */
+    background-color: #050505; 
   }
 
   /* Optimized scrollbar */
-  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: #000000; }
-  ::-webkit-scrollbar-thumb { background: #330000; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #330000; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #FF0033; }
   
   ::selection { background: #FF0033; color: white; }
@@ -27,44 +25,53 @@
 @layer components {
   .neon-text {
     color: #FF0033;
-    text-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
+    text-shadow: 0 0 15px rgba(255, 0, 51, 0.6);
   }
 
-  /* Performance optimized card */
   .glass-card {
-    background-color: rgba(10, 10, 10, 0.9); /* Higher opacity = less blur calculation */
+    background-color: rgba(15, 15, 15, 0.95); /* Higher opacity = faster rendering */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px); /* Reduced from heavy blur */
     padding: 2rem;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    will-change: transform; /* Hardware acceleration hint */
+    transition: border-color 0.2s ease;
   }
 
   .glass-card:hover {
     border-color: #FF0033;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px -10px rgba(255, 0, 51, 0.15);
   }
 
+  /* BUTTONS */
   .btn-primary {
-    @apply px-8 py-3 font-bold tracking-widest uppercase border border-transparent transition-all duration-300;
+    @apply px-6 py-3 font-bold tracking-widest uppercase border border-transparent transition-all duration-200 text-center;
     background-color: #FF0033;
     color: white;
+    box-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
   }
   
   .btn-primary:hover {
-    background-color: transparent;
-    border-color: #FF0033;
-    color: #FF0033;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
+    background-color: #CC0022;
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.6);
   }
 
   .btn-secondary {
-    @apply px-8 py-3 bg-transparent text-white font-bold tracking-widest uppercase border border-white/20 transition-all duration-300;
+    @apply px-6 py-3 bg-transparent text-white font-bold tracking-widest uppercase border border-white/20 transition-all duration-200 text-center;
   }
 
   .btn-secondary:hover {
     border-color: white;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.1);
   }
+  
+  /* MOBILE FIX: Code blocks scroll horizontally */
+  .code-scroll {
+    @apply overflow-x-auto w-full max-w-[85vw] md:max-w-full;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Lighter grid for background that doesn't lag */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
