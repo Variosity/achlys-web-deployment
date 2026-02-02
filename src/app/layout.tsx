@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ACHLYS | The Ouroboros Language',
+  title: 'ACHLYS | The Achlys Language',
   description: 'A self-hosting, Latin-based programming language forged for security, speed, and elegance.',
   keywords: ['programming', 'language', 'latin', 'hacking', 'security', 'compiler'],
   openGraph: {
