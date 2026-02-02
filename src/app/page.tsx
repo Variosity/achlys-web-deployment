@@ -51,7 +51,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-30"
           >
             <Link href="/download" className="btn-primary w-full sm:w-auto">
-              Download v1.3
+              Download v1.2
             </Link>
             <Link href="/docs" className="btn-secondary w-full sm:w-auto">
               Read The Docs
