@@ -19,7 +19,13 @@
   ::-webkit-scrollbar-thumb { background: #330000; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #FF0033; }
   
-  ::selection { background: #FF0033; color: white; }
+  
+}
+
+::selection {
+  background-color: #FF0033 !important;
+  color: #FFFFFF !important;
+  text-shadow: none;
 }
 
 @layer components {
