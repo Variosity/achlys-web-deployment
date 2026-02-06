@@ -44,7 +44,7 @@ export default function Pricing() {
             <li>✅ Support Development</li>
             <li>✅ Early Access Features</li>
             <li>✅ Special Discord Role</li>
-            <li>✅ Pre-release access</li>
+            <li>✅ Pre-release Access</li>
           </ul>
           <a 
             href="https://ko-fi.com/ach1ys" 
