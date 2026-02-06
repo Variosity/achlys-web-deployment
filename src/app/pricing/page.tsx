@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Terminal, Building } from 'lucide-react'
+import { Heart, Terminal, Building, Coffee } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Pricing() {
   return (
@@ -23,9 +24,10 @@ export default function Pricing() {
             <li>✅ Community Discord</li>
             <li>✅ Standard Library</li>
           </ul>
-<Link href="/download" className="btn-secondary w-full block py-3">
+          <Link href="/download" className="btn-secondary w-full block py-3">
             Get Started
-          </Link>        </div>
+          </Link>
+        </div>
 
         {/* Supporter Tier (Highlighted) */}
         <motion.div 
@@ -44,7 +46,7 @@ export default function Pricing() {
             <li>✅ Special Discord Role</li>
             <li>✅ Pre-release access</li>
           </ul>
-         <a 
+          <a 
             href="https://ko-fi.com/ach1ys" 
             target="_blank" 
             rel="noopener noreferrer" 
@@ -66,20 +68,22 @@ export default function Pricing() {
             <li>✅ Commercial Licensing</li>
           </ul>
           <a href="mailto:alejandriosity@gmail.com" className="btn-secondary w-full block py-3">
-          <button className="btn-secondary w-full">Contact Us</button>
-        </div>
-        {/* One-time Donation Alternative */}
-        <div className="mt-16 pt-16 border-t border-white/10">
-          <p className="text-gray-400 mb-6">Just want to buy us a coffee?</p>
-          <a 
-            href="https://ko-fi.com/ach1ys" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-blood transition-colors"
-          >
-            <Coffee size={16} /> Make a one-time donation via Ko-fi
+            Contact Us
           </a>
         </div>
+      </div>
+
+      {/* One-time Donation Alternative - Moved OUTSIDE the grid so it sits at the bottom */}
+      <div className="mt-16 pt-16 border-t border-white/10">
+        <p className="text-gray-400 mb-6">Just want to buy us a coffee?</p>
+        <a 
+          href="https://ko-fi.com/ach1ys" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-blood transition-colors"
+        >
+          <Coffee size={16} /> Make a one-time donation via Ko-fi
+        </a>
       </div>
     </div>
   )
