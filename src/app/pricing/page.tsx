@@ -52,7 +52,7 @@ export default function Pricing() {
             rel="noopener noreferrer" 
             className="btn-primary w-full mt-auto flex items-center justify-center gap-2"
           >
-            Supporter
+           Become a Supporter
           </a>
         </motion.div>
 
