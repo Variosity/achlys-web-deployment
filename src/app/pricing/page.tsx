@@ -23,8 +23,9 @@ export default function Pricing() {
             <li>✅ Community Discord</li>
             <li>✅ Standard Library</li>
           </ul>
-          <button className="btn-secondary w-full">Get Started</button>
-        </div>
+<Link href="/download" className="btn-secondary w-full block py-3">
+            Get Started
+          </Link>        </div>
 
         {/* Supporter Tier (Highlighted) */}
         <motion.div 
@@ -41,9 +42,16 @@ export default function Pricing() {
             <li>✅ Support Development</li>
             <li>✅ Early Access Features</li>
             <li>✅ Special Discord Role</li>
-            <li>✅ Name in Credits</li>
+            <li>✅ Pre-release access</li>
           </ul>
-          <button className="btn-primary w-full">Sponsor</button>
+         <a 
+            href="https://ko-fi.com/ach1ys" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-primary w-full mt-auto flex items-center justify-center gap-2"
+          >
+            Supporter
+          </a>
         </motion.div>
 
         {/* Enterprise Tier */}
@@ -54,10 +62,23 @@ export default function Pricing() {
           <ul className="text-gray-400 text-sm space-y-4 mb-8 flex-grow text-left pl-8">
             <li>✅ Priority Support</li>
             <li>✅ Custom Features</li>
-            <li>✅ On-premise Training</li>
+            <li>✅ Virtual Training</li>
             <li>✅ Commercial Licensing</li>
           </ul>
+          <a href="mailto:alejandriosity@gmail.com" className="btn-secondary w-full block py-3">
           <button className="btn-secondary w-full">Contact Us</button>
+        </div>
+        {/* One-time Donation Alternative */}
+        <div className="mt-16 pt-16 border-t border-white/10">
+          <p className="text-gray-400 mb-6">Just want to buy us a coffee?</p>
+          <a 
+            href="https://ko-fi.com/ach1ys" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-blood transition-colors"
+          >
+            <Coffee size={16} /> Make a one-time donation via Ko-fi
+          </a>
         </div>
       </div>
     </div>
