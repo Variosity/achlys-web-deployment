@@ -39,7 +39,7 @@ export default function DownloadPage() {
     {
       name: "Achlys Bootstrapped",
       type: "Advanced",
-      size: "~5KB",
+      size: "~1MB",
       icon: <Box className="w-10 h-10 text-blood" />,
       desc: "Pure Achlys. Ouroboros complete. The Achlys compiler is here. Runs on amd64, arm64, as well as freestanding.",
       cmd: "./Achlys Achlys.nox",
