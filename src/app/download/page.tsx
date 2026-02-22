@@ -16,7 +16,7 @@ export default function DownloadPage() {
       icon: <Shield className="w-10 h-10 text-blood" />,
       desc: "Static binary. No graphics. Pure networking. Optimized for Red Team stealth.",
       cmd: "gcc -DNO_GRAPHICS achlys.c -o achlys -lm",
-      url: `https://github.com/Variosity/-Achlys/releases/download/v1.2/achlys`
+      url: `https://github.com/Variosity/-Achlys/releases/download/v1.5/achlys.c`
     },
     {
       name: "Achlys Full",
@@ -25,7 +25,7 @@ export default function DownloadPage() {
       icon: <Layers className="w-10 h-10 text-blood" />,
       desc: "Complete experience. Raylib graphics engine enabled. Best for development.",
       cmd: "gcc -DENABLE_GRAPHICS achlys.c -lraylib -lm",
-      url: `https://github.com/Variosity/-Achlys/releases/download/v1.2/achlys`
+      url: `https://github.com/Variosity/-Achlys/releases/download/v1.5/achlys.c`
     },
     {
       name: "Achlys Ouroboros",
@@ -34,8 +34,18 @@ export default function DownloadPage() {
       icon: <Box className="w-10 h-10 text-blood" />,
       desc: "The Ouroboros. Zero dependencies. Graphics included. Runs on any Linux.",
       cmd: "./achlys ouroboros.nox",
-      url: `https://github.com/Variosity/-Achlys/releases/download/v1.2/ouroboros.nox`
+      url: `https://github.com/Variosity/-Achlys/releases/download/v1.8/ouroboros.nox`
+    },
+    {
+      name: "Achlys Bootstrapped",
+      type: "Advanced",
+      size: "~5KB",
+      icon: <Box className="w-10 h-10 text-blood" />,
+      desc: "Pure Achlys. Ouroboros complete. The Achlys compiler is here. Runs on amd64, arm64, as well as freestanding.",
+      cmd: "./Achlys Achlys.nox",
+      url: `https://github.com/Variosity/-Achlys/releases/tag/v1.8.2`
     }
+  ]
   ]
 
   return (
