@@ -46,7 +46,7 @@ export default function DownloadPage() {
       url: `https://github.com/Variosity/-Achlys/releases/tag/v1.8.2`
     }
   ]
-  ]
+  
 
   return (
     <div className="section-container pt-32 pb-20 text-center">
